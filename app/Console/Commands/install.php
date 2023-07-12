@@ -26,7 +26,7 @@ class install extends Command
      */
     public function handle()
     {
-        Artisan::call("migrate");
+        Artisan::call("migrate --force");
         Artisan::call("storage:link");
         Artisan::call("db:seed");
         Artisan::call("db:seed --class ProjectSeeder");
