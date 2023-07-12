@@ -143,6 +143,7 @@
                     </div>
                 </form>
                 <ul class="space-y-2">
+                    @auth()
                     <li>
                         <a
                             href="/projects"
@@ -161,6 +162,7 @@
                             <span class="ml-3">Proyectos</span>
                         </a>
                     </li>
+                    @endauth
                     <li>
                         <a
                             href="/public-projects"
