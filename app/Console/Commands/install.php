@@ -19,14 +19,16 @@ class install extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Instalacion del proyecto';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
+        Artisan::call("migrate");
         Artisan::call("storage:link");
+        Artisan::call("db:seed");
         Artisan::call("db:seed --class ProjectSeeder");
     }
 }
