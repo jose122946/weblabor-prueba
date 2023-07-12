@@ -46,15 +46,26 @@
                                                value="{{$description}}"
                                                type="hidden"
                                                name="content">
-                                    <div
-                                         wire:ignore>
+                                    <div id="editor"></div>
+                                    @push('scripts')
 
+                                    <script>
+                                        ClassicEditor
+                                            .create(document.querySelector('#description'))
+                                            .then(editor => {
+                                                editor.model.document.on('change:data', () => {
+                                                @this.set('description', editor.getData());
+                                                })
+                                            })
+                                            .catch(error => {
+                                                console.error(error);
+                                            });
+                                    </script>
+                                    @endpush
+                                    <div wire:ignore>
 
-                                        <trix-editor  input="editor-x"
-                                                      x-on:trix-change="textEditor=$refs.editor.value;"
-                                        ></trix-editor>
+                                    <textarea wire:model="description" id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                                     </div>
-{{--                                    <textarea wire:model="description" id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>--}}
 
                                 </div>
                             </div>
