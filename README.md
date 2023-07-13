@@ -15,7 +15,7 @@
 - Ejecutar el comand de php artisan app:install, este incluye seeder de proyectos y crear symlinks para los archivos.
 - Ejecutar php artisan serve --port 80.
 - Ingresar al [login](http://localhost).
-- Ingresar el usuario "admin@maioinator.com" y la contraseña "password".
+- Ingresar el usuario "admin@mailinator.com" y la contraseña "password".
 - Para ingresar a la lista de proyectos activos, hay un link en la pagina del login
 
 La base de datos esta en sqlite3 y no es necesario instalar un servidor.
